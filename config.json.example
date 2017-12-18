@@ -1,0 +1,19 @@
+{
+    "via": "<IP>",
+    "rewrite": {
+        "<ZONE>": {
+            "interval": 10,
+            "watch": "/var/named/etc/namedb/slave/<ZONE>.jnl",
+
+            "addWildcard": true,
+            "type": "CNAME",
+            "rr": "*.<REWRITE_DEST>",
+            "file": "/var/named/etc/namedb/master/<ZONE>",
+            "ns": [
+                "<NS1>",
+                "<NS2>"
+            ],
+            "rndc": "<ZONE>"
+        }
+    }
+}
